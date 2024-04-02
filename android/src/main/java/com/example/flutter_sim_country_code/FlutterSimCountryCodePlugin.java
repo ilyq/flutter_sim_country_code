@@ -46,9 +46,9 @@ public class FlutterSimCountryCodePlugin implements FlutterPlugin, MethodCallHan
   private void getSimCountryCode(Result result) {
      TelephonyManager manager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
      if (manager != null) {
-       String countryId = manager.getSimCountryIso();
+       String countryId = manager.getSimOperator();
        if (countryId != null) {
-         result.success(countryId.toUpperCase());
+         result.success(countryId);
          return;
        }
      }
